@@ -10,7 +10,7 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $table = 'companys';
+    protected $table = 'company';
 
     public function category(){
         return $this->belongsTo(CompanyCategory::class, 'category_id', 'id');

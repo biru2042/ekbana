@@ -21,13 +21,10 @@ class CompanyCategoryController extends Controller
      */
     public function index(Request $request)
     {
-        
+       
        return CompanyCategoryResource::collection(CompanyCategory::where('title', 'LIKE', "%$request->title%")
                     ->orWhere('created_at', '=', date('Y-m-d'))
                     ->with('companies')
-                    // ->where('title', 'LIKE', "%$request->title%")
-                    // ->orWhereDate('created_at', '=', date('Y-m-d'))
-                    // ->whereDate('updated_at', '=', date('Y-m-d'))
                     ->paginate(10)); 
     }
 
@@ -41,7 +38,6 @@ class CompanyCategoryController extends Controller
     {
         try{
             CompanyCategory::create([
-                // "id" => mt_rand(10, 999999999),
                 "title" => request()->title,
                 "created_at" => Carbon::now()
             ]);
@@ -61,7 +57,6 @@ class CompanyCategoryController extends Controller
     public function show(Request $request, $id)
     {
         
-        // return CompanyCategory::where('id', $id)->first();
         return new CompanyCategoryResource(CompanyCategory::where('id', $id)->first());
     }
 
@@ -98,9 +93,5 @@ class CompanyCategoryController extends Controller
         }catch(\Excecption $e){
             return Response::json(array('error'=>'Something went wrong. Please try again.')); 
         }
-    }
-
-    public function search(Request $request){
-        dd($request->all());
     }
 }
