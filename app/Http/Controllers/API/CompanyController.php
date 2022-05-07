@@ -23,8 +23,7 @@ class CompanyController extends Controller
     public function index()
     {
         
-
-            return CompanyResource::collection(Company::with('category')
+        return CompanyResource::collection(Company::with('category')
                     ->paginate(10)); 
     }
 

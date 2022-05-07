@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Requests\EditCompanyCategoryRequest;
+use App\Http\Resources\CompanyCategoryResource;
 use App\Http\Requests\CompanyCategoryRequest;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyCategory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Response;
-use App\Http\Resources\CompanyCategoryResource;
-use App\Http\Resources\CompanyCategoryResourceCollection;
 
 class CompanyCategoryController extends Controller
 {
